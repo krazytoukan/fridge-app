@@ -3,7 +3,8 @@ const
     app  = express(),
     logger = require('morgan'),
     mongoose = require('mongoose'),
-    PORT = 3000
+    PORT = 3000,
+    fridgeRouter = require('./routers/fridgeRouter.js')
 
 // Connect to DB
 mongoose.connect("mongodb://localhost/fridge", (err) => {
@@ -15,7 +16,7 @@ app.use(logger('dev'));
 app.use(express.json());
 
 // routes
-// app.user
+app.user('/api/fridge', fridgeRouter);
 
 
 app.listen(PORT, (err) => {
