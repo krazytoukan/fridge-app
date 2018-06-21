@@ -19,3 +19,27 @@ exports.create = (req, res) => {
         }
     })
 }
+
+exports.showItem = (req,res) => {
+    Fridge.findById(req.params.id, (err, fridge) =>{
+        if(err){
+            res.json({status: "Fail", err})
+        } else {
+            res.json({status: "Success", payload: {fridge}})
+        }
+    })
+}
+
+exports.update = (req,res) => {
+    Fridge.findByIdAndUpdate({_id: req.params.id}, {$set: req.body}, (err, fridge) => {
+        if(err) return console.log(err);
+        res.json({status: "Success", payload: req.body})
+    })
+}
+
+exports.destroy = (req,res) => {
+    Fridge.findByIdAndRemove(req.param.id, (err) => {
+        if(err) return console.log(err);
+        res.json({status: "FOOD SPOILED", payload: Fridge})
+    })
+}
