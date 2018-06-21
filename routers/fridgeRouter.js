@@ -1,7 +1,7 @@
 const
     express = require('express'),
     router = express.Router(),
-    Fridges = "../controllers/fridges.js"
+    Fridge = require("../controllers/fridges.js")
 
 router.get('/', Fridge.showAll)
 router.post('/', Fridge.create)

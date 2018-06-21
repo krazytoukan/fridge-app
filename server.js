@@ -16,9 +16,10 @@ app.use(logger('dev'));
 app.use(express.json());
 
 // routes
-app.user('/api/fridge', fridgeRouter);
+app.use('/api/fridge', fridgeRouter);
 
 
 app.listen(PORT, (err) => {
     console.log(err || "It's Alive")
 })
+

@@ -1,11 +1,11 @@
-const Fridge = require('..models/fridge');
+const Fridge = require('../models/fridge.js');
 
 exports.showAll = (req, res) => {
-    Fridge.find({}, (err, dogs) => {
+    Fridge.find({}, (err, fridge) => {
         if(err){
             res.json({status: "FAIL", err})
         } else {
-            res.json({status: "SUCCESS", payload: {dogs}})
+            res.json({status: "SUCCESS", payload: {fridge}})
         }
     }) 
 };
